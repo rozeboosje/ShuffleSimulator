@@ -1,0 +1,60 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ShuffleSimulator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="150" Width="500"
+        SizeToContent="Height">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="5"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Margin="3" VerticalAlignment="Center">Number of Songs in Play List</TextBlock>
+            <TextBox Grid.Row="0" Margin="3" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" MinWidth="80" x:Name="tbListLength"></TextBox>
+            <TextBlock Grid.Row="1" Margin="3" VerticalAlignment="Center">Number of Songs in Queue</TextBlock>
+            <TextBox Grid.Row="1" Margin="3" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" MinWidth="80" x:Name="tbQueueLength"></TextBox>
+            <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnGoForIt" Grid.Row="0" Margin="3">Go for it</Button>
+                <Button x:Name="btnStop" Grid.Row="1" Margin="3">Stop</Button>
+            </Grid>
+        </Grid>
+        <TextBlock Grid.Row="1" Margin="3">
+            <Run>Number of Simulations run:</Run>
+            <Run x:Name="rSimulations"></Run>
+        </TextBlock>
+        <TextBlock Grid.Row="2" Margin="3">
+            <Run>Number of songs you heard before you heard one you heard before:</Run>
+            <Run x:Name="rSongsPlayed"></Run>
+        </TextBlock>
+        <TextBlock Grid.Row="3" Margin="3">
+            <Run>Average number of songs before you'll hear one you've heard before:</Run>
+            <Run x:Name="rAverage"></Run>
+        </TextBlock>
+    </Grid>
+</Window>
