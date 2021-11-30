@@ -1,7 +1,9 @@
-﻿Class MainWindow
+﻿Imports System.ComponentModel
+
+Class MainWindow
     Private goRandom As Random
-    Private mbStopping As Boolean
-    Private mbStopped As Boolean
+    Private mbStopping As Boolean = True
+    Private mbStopped As Boolean = True
 
     Private Sub btnGoForIt_Click(sender As Object, e As RoutedEventArgs) Handles btnGoForIt.Click
 
@@ -117,6 +119,7 @@
                                    rAverage.Text = (dTotal / dCount).ToString()
                                End Sub)
             If mbStopping Then
+                mbStopped = True
                 Exit Sub
             End If
         End While
@@ -125,6 +128,15 @@
 
     Private Sub btnStop_Click(sender As Object, e As RoutedEventArgs) Handles btnStop.Click
         mbStopping = True
+    End Sub
+
+    Private Sub MainWindow_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        If mbStopping = False Then
+            mbStopping = True
+            e.Cancel = True
+        ElseIf mbStopped = False Then
+            e.Cancel = True
+        End If
     End Sub
 End Class
 

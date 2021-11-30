@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ShuffleSimulator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="150" Width="500"
-        SizeToContent="Height">
+        Title="Spotify Shuffle Simulator" Height="150" Width="550"
+        SizeToContent="Height" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -40,8 +40,12 @@
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="btnGoForIt" Grid.Row="0" Margin="3">Go for it</Button>
-                <Button x:Name="btnStop" Grid.Row="1" Margin="3">Stop</Button>
+                <Button x:Name="btnGoForIt" Grid.Row="1" Grid.Column="0" Margin="3">
+                    <AccessText Margin="5,0,6,0">Go for it</AccessText>
+                </Button>
+                <Button x:Name="btnStop" Grid.Row="1" Grid.Column="1" Margin="3">
+                    <AccessText Margin="15,0">Stop</AccessText>
+                </Button>
             </Grid>
         </Grid>
         <TextBlock Grid.Row="1" Margin="3">
