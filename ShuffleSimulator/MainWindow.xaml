@@ -13,10 +13,15 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="5"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
@@ -28,10 +33,12 @@
                 <ColumnDefinition Width="auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Margin="3" VerticalAlignment="Center">Number of Songs in Play List</TextBlock>
-            <TextBox Grid.Row="0" Margin="3" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" MinWidth="80" x:Name="tbListLength"></TextBox>
+            <TextBox Grid.Row="0" Margin="3" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" MinWidth="80" x:Name="txtListLength"></TextBox>
             <TextBlock Grid.Row="1" Margin="3" VerticalAlignment="Center">Number of Songs in Queue</TextBlock>
-            <TextBox Grid.Row="1" Margin="3" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" MinWidth="80" x:Name="tbQueueLength"></TextBox>
-            <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="3">
+            <TextBox Grid.Row="1" Margin="3" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" MinWidth="80" x:Name="txtQueueLength"></TextBox>
+            <TextBlock x:Name="tbMaxUntilStop" Grid.Row="2" Margin="3" VerticalAlignment="Center" Visibility="Collapsed">Max Number of Songs until Stop</TextBlock>
+            <TextBox Grid.Row="2" Margin="3" Grid.Column="1" VerticalAlignment="Center" VerticalContentAlignment="Center" MinWidth="80" x:Name="txtMaxUntilStop" Visibility="Collapsed"></TextBox>
+            <Grid Grid.Row="0" Grid.RowSpan="4" Grid.Column="3">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="auto"></RowDefinition>
@@ -39,7 +46,15 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                <CheckBox Grid.Row="0"
+                          x:Name="cbKeepRestarting"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="3"
+                          Margin="3"
+                          VerticalAlignment="Center"
+                          VerticalContentAlignment="Center">Restart Shuffle Every Time</CheckBox>
                 <Button x:Name="btnGoForIt" Grid.Row="1" Grid.Column="0" Margin="3">
                     <AccessText Margin="5,0,6,0">Go for it</AccessText>
                 </Button>
@@ -48,17 +63,21 @@
                 </Button>
             </Grid>
         </Grid>
-        <TextBlock Grid.Row="1" Margin="3">
+        <TextBlock Grid.Row="3" Margin="3" x:Name="tbNumberOfSims">
             <Run>Number of Simulations run:</Run>
             <Run x:Name="rSimulations"></Run>
         </TextBlock>
-        <TextBlock Grid.Row="2" Margin="3">
+        <TextBlock Grid.Row="4" Margin="3" x:Name="tbNumberUntilRepeat" Visibility="Collapsed">
             <Run>Number of songs you heard before you heard one you heard before:</Run>
             <Run x:Name="rSongsPlayed"></Run>
         </TextBlock>
-        <TextBlock Grid.Row="3" Margin="3">
+        <TextBlock Grid.Row="5" Margin="3" x:Name="tbAverageNumberUntilRepeat" Visibility="Collapsed">
             <Run>Average number of songs before you'll hear one you've heard before:</Run>
             <Run x:Name="rAverage"></Run>
+        </TextBlock>
+        <TextBlock Grid.Row="6" Margin="3" x:Name="tbAverageNumberOfRepeats" Visibility="Collapsed">
+            <Run>Average of maximum number of times one song was repeated in 10 shuffles:</Run>
+            <Run x:Name="rAverageRepeat"></Run>
         </TextBlock>
     </Grid>
 </Window>
