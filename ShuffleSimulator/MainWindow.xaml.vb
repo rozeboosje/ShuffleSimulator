@@ -13,10 +13,12 @@ Class MainWindow
         If cbKeepRestarting.IsChecked Then
             tbNumberUntilRepeat.Visibility = Visibility.Collapsed
             tbAverageNumberUntilRepeat.Visibility = Visibility.Collapsed
+            tbMaxNumberOfRepeats.Visibility = Visibility.Visible
             tbAverageNumberOfRepeats.Visibility = Visibility.Visible
         Else
             tbNumberUntilRepeat.Visibility = Visibility.Visible
             tbAverageNumberUntilRepeat.Visibility = Visibility.Visible
+            tbMaxNumberOfRepeats.Visibility = Visibility.Collapsed
             tbAverageNumberOfRepeats.Visibility = Visibility.Collapsed
         End If
 
@@ -208,6 +210,7 @@ Class MainWindow
                                ByVal oDispatcher As System.Windows.Threading.Dispatcher)
 
         Dim nMaxRepeats As Integer
+        Dim nMaxMaxRepeats As Integer = 0
         Dim dCount As Double = 0
         Dim dTotal As Double = 0
         Dim nRunsPerSim As Integer
@@ -295,12 +298,16 @@ Class MainWindow
             End While
 
             dTotal = dTotal + nMaxRepeats
+            If nMaxRepeats > nMaxMaxRepeats Then
+                nMaxMaxRepeats = nMaxRepeats
+            End If
 
             'Add the result of this simulation to the total, and dTotal/dCount will give you the average number of "song"s that were "played"
             'before the simulation picked up a song that had already been "played" before
             oDispatcher.Invoke(Sub()
                                    'And update the display with the results
                                    rSimulations.Text = CInt(Math.Round(CDec(dCount), 0)).ToString()
+                                   rMaxRepeat.Text = nMaxMaxRepeats.ToString()
                                    rAverageRepeat.Text = (dTotal / dCount).ToString()
                                End Sub)
 

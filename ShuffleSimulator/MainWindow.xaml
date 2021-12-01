@@ -16,6 +16,7 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="5"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
@@ -75,7 +76,11 @@
             <Run>Average number of songs before you'll hear one you've heard before:</Run>
             <Run x:Name="rAverage"></Run>
         </TextBlock>
-        <TextBlock Grid.Row="6" Margin="3" x:Name="tbAverageNumberOfRepeats" Visibility="Collapsed">
+        <TextBlock Grid.Row="6" Margin="3" x:Name="tbMaxNumberOfRepeats" Visibility="Collapsed">
+            <Run>Maximum number of times one song was repeated in 10 shuffles:</Run>
+            <Run x:Name="rMaxRepeat"></Run>
+        </TextBlock>
+        <TextBlock Grid.Row="7" Margin="3" x:Name="tbAverageNumberOfRepeats" Visibility="Collapsed">
             <Run>Average of maximum number of times one song was repeated in 10 shuffles:</Run>
             <Run x:Name="rAverageRepeat"></Run>
         </TextBlock>
